@@ -22,4 +22,5 @@ app_name = 'ticketFinder'
 urlpatterns = [
     
     path('', views.index, name = 'index'),
+    re_path(r'generatePDF/$', views.GeneratePDF.as_view())
 ]

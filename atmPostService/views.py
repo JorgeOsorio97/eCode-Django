@@ -38,10 +38,11 @@ def POST_transaccion(request):
                         cuenta = cuenta, 
                         fecha = datetime.fromtimestamp(fecha)+timedelta(hours = 5), 
                         banco = 'Santander')
+    trans.save()
     if request.POST.get('ticket',1) == 1:
         ecode = eCode.objects.filter(fecha_uso__isnull = True).first()
         print(ecode.ecode)
-        response = {'succes':True, 'eCode': ecode.ecode}
+        response = {'succes':True, 'eCode': ecode.ecode, 'id_transaccion': trans.id_transaccion}
     else:
         response = {'succes':True}
     return JsonResponse(response)
