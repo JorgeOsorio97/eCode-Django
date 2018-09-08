@@ -9,7 +9,8 @@ from ticketFinder.utils import render_to_pdf #created in step 4
 def index(request):
     return render(request, 'index.html')
 
-
+def GET_eCode(request):
+    ecode = request.GET.get('eCode')
 
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):

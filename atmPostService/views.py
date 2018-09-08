@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from atmPostService.models import Cuenta, Cajero, Transaccion, eCode
 from datetime import datetime, timedelta
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-
+@csrf_exempt
 def POST_transaccion(request):
-    print('entro')
     tipo = request.POST.get('tipo')  
     # if tipo == 0:
     #     tipo = 'deposito'
@@ -26,25 +26,25 @@ def POST_transaccion(request):
     # elif tipo == 7:
     #     tipo = 'retiro'
     
-    id_atm = request.POST.get('id_atm')
+    id_atm = Cajero.objects.filter(id_atm=request.POST.get('id_atm')).first()
     importe = request.POST.get('importe')
     cuenta = request.POST.get('cuenta')
-    fecha = request.POST.get('fecha')
+    fecha = int(request.POST.get('fecha'))/1000
     banco = request.POST.get('banco')
     folio = request.POST.get('folio')
-    no_tarjeta = request.POST.get('no_tarjeta')
+    #no_tarjeta = request.POST.get('no_tarjeta')
     trans = Transaccion(folio = folio, id_atm = id_atm, 
                         tipo = tipo, importe = importe, 
                         cuenta = cuenta, 
                         fecha = datetime.fromtimestamp(fecha)+timedelta(hours = 5), 
-                        banco = 'Santander')
+                        banco = banco)
     trans.save()
-    if request.POST.get('ticket',1) == 1:
+    if request.POST.get('ecode',0) == 1:
         ecode = eCode.objects.filter(fecha_uso__isnull = True).first()
         print(ecode.ecode)
-        response = {'succes':True, 'eCode': ecode.ecode, 'id_transaccion': trans.id_transaccion}
+        response = {'succes':True, 'ecode': ecode.ecode, 'id_transaccion': trans.id_transaccion}
     else:
-        response = {'succes':True}
+        response = {'succes':True, 'id_transaccion': trans.id_transaccion}
     return JsonResponse(response)
 
 def POST_deposito(request):

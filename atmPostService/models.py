@@ -12,7 +12,7 @@ class Transaccion(models.Model):
     id_transaccion = models.CharField(max_length=50, null = True)
 
     def save(self, *args, **kwargs):
-        self.id_transaccion = str(self.id_atm) + str(self.tipo) + str(self.folio)
+        self.id_transaccion = str(self.id_atm.id_atm) + str(self.tipo) + str(self.folio)
 #    no_tarjeta = models.BigIntegerField()
 
     def __str__(self):
