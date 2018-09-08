@@ -9,23 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def POST_transaccion(request):
     tipo = request.POST.get('tipo')  
-    # if tipo == 0:
-    #     tipo = 'deposito'
-    # elif tipo == 1:
-    #     tipo = 'pago_servicio'
-    # elif tipo == 2:
-    #     tipo == 'pago_tc'
-    # elif tipo == 3:
-    #     tipo = 'pago_credito'
-    # elif tipo == 4:
-    #     tipo = 'prestamo_disponible'
-    # elif tipo == 5:
-    #     tipo = 'consultar_saldo'
-    # elif tipo == 6:
-    #     tipo = 'tiempo_aire'
-    # elif tipo == 7:
-    #     tipo = 'retiro'
-    
+   
+    print(request.POST)
     id_atm = Cajero.objects.filter(id_atm=request.POST.get('id_atm')).first()
     importe = request.POST.get('importe')
     cuenta = request.POST.get('cuenta')
@@ -39,9 +24,9 @@ def POST_transaccion(request):
                         fecha = datetime.fromtimestamp(fecha)+timedelta(hours = 5), 
                         banco = banco)
     trans.save()
-    if request.POST.get('ecode',0) == 1:
+    if request.POST.get('ecode',0) == '1':
         ecode = eCode.objects.filter(fecha_uso__isnull = True).first()
-        print(ecode.ecode)
+        ecode.id_transaccion
         response = {'succes':True, 'ecode': ecode.ecode, 'id_transaccion': trans.id_transaccion}
     else:
         response = {'succes':True, 'id_transaccion': trans.id_transaccion}

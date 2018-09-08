@@ -1,25 +1,38 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse
 from django.views.generic import View
 from django.template.loader import get_template
-from ticketFinder.utils import render_to_pdf #created in step 4
+from ticketFinder.utils import render_to_pdf 
+from atmPostService.models import Transaccion
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
-def GET_eCode(request):
-    ecode = request.GET.get('eCode')
+def options(request):
+    return render(request, 'options.html')
+
+def ecode(request):
+    return render(request, 'ecode.html')
+
+def cuestionario(request):
+    return render(request, 'cuetionario.html')
+
+
 
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):
+        transaccion = Transaccion.objects.filter(id_transaccion = request.GET.get('id_transaccion')).first()
         template = get_template('pdf.html')
         context = {
-            "invoice_id": 123,
-            "customer_name": "John Cooper",
-            "amount": 1399.99,
-            "today": "Today",
+            "id_atm": transaccion.id_atm.id_atm,
+            "folio": transaccion.folio,
+            "tipo": definir_tipo(transaccion.tipo),
+            "importe": transaccion.importe,
+            "cuenta": str(transaccion.cuenta)[-4:],
+            "fecha": transaccion.fecha,
+            "banco": transaccion.banco,
+            "id_transaccion": transaccion.id_transaccion
         }
         html = template.render(context)
         pdf = render_to_pdf('pdf.html', context)
@@ -32,3 +45,22 @@ class GeneratePDF(View):
                 content = "attachment; filename='%s'" %(filename)
             response['Content-Disposition'] = content
             return response
+
+def definir_tipo(tipo):
+    if tipo == 0:
+        tipo = 'Deposito'
+    elif tipo == 1:
+        tipo = 'Pago de servicios'
+    elif tipo == 2:
+        tipo == 'Pago a TC'
+    elif tipo == 3:
+        tipo = 'Pago de Credito o de Prestamos'
+    elif tipo == 4:
+        tipo = 'Prestamo Disponible'
+    elif tipo == 5:
+       tipo = 'Consultar Saldo'
+    elif tipo == 6:
+        tipo = 'Tiempo aire'
+    elif tipo == 7:
+        tipo = 'Retiro' 
+    return tipo

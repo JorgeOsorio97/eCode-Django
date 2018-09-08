@@ -1,4 +1,4 @@
-from atmPostService.models import eCode
+from atmPostService.models import eCode, Transacciones, Cajero, Cuenta
 
 def define(x):
     if x < 10 :
@@ -76,3 +76,10 @@ def poblar():
                         n+=1
                         print(n)
                     
+def poblar_cuentas():
+    for x in range(100):
+        return
+
+def poblar_transacciones():
+    for x in range(10000):
+        return

@@ -12,8 +12,9 @@ class Transaccion(models.Model):
     id_transaccion = models.CharField(max_length=50, null = True)
 
     def save(self, *args, **kwargs):
-        self.id_transaccion = str(self.id_atm.id_atm) + str(self.tipo) + str(self.folio)
-#    no_tarjeta = models.BigIntegerField()
+        self.id_transaccion = str(self.id_atm.id_atm) + str(self.tipo) + str(self.folio) + str(self.fecha.year) + str(self.fecha.month)+ str(self.fecha.day)
+        super(Transaccion, self).save(*args, **kwargs)
+#    no_tarjeta = models.BigIntegerField()  
 
     def __str__(self):
         return self.id_transaccion

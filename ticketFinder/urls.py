@@ -22,5 +22,8 @@ app_name = 'ticketFinder'
 urlpatterns = [
     
     path('', views.index, name = 'index'),
+    re_path(r'ecode/$', views.ecode, name = 'ecode'),
+    re_path(r'options/$',views.options, name = 'options'),
+    re_path(r'cuestionario/$', views.cuestionario, name = 'cuestionario'),
     re_path(r'generatePDF/$', views.GeneratePDF.as_view())
 ]
