@@ -16,6 +16,7 @@ class Cajero(models.Model):
     estado = models.CharField(max_length=50)
     ciudad = models.CharField(max_length=50)
     localidad = models.CharField(max_length=50)
+    ubicacion = models.CharField(max_length=50, null = True)
 
 class Cuenta(models.Model):
       no_cuenta = models.BigIntegerField(primary_key = True)
