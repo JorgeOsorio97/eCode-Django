@@ -20,5 +20,6 @@ from atmPostService import views
 app_name = 'atmPostService'
 
 urlpatterns = [
-    re_path(r'POST_transaction/$', views.POST_transaction, name='POST_transaction'),
+    re_path(r'POST_transaccion/$', views.POST_transaccion, name='POST_transaccion'),
+    re_path(r'POST_deposito/$', views.POST_deposito, name='POST_deposito' )
 ]
