@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import path, re_path
+from atmPostService import views
 
+app_name = 'atmPostService'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include("ticketFinder.urls")),
-    re_path(r'^atmPostService/', include("atmPostService.urls")),
+    re_path(r'POST_transaction/$', views.POST_transaction, name='POST_transaction'),
 ]
