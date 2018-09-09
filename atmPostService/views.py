@@ -26,7 +26,7 @@ def POST_transaccion(request):
     trans.save()
     if request.POST.get('ecode',0) == '1':
         ecode = eCode.objects.filter(fecha_uso__isnull = True).first()
-        ecode.id_transaccion = trans.id_transaccion
+        ecode.id_transaccion = trans
         ecode.fecha_uso = datetime.datetime.now()
         response = {'succes':True, 'ecode': ecode.ecode, 'id_transaccion': trans.id_transaccion}
     else:

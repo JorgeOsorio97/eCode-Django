@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block head_block %}
+    <title>Cuestionario</title>
+    {% endblock %}
+
+    {% block body_block %}
+    <div style="display: flex;flex-direction: column;width: 88.15%;height: 400px;padding-left: 80px;padding-right: 80px;">
+        <div style="width: 100%;height: 170px;margin-bottom: 50px;">
+            <p class="text" style="font-size:30px;font-weight: 900;color: black;padding-top: 50px;">
+            Contesta el siguiente cuestionario
+            </p>
+            <div style="background-color: #2dcccd; height: 10px; width: 50px;margin-top:10px;"></div>
+            <p class="text" style="font-size:20px;">
+            No todos los campos son obligatorios, pero mientras más información nos pueda 
+            proporcionar, más le podremos asegurar que encontraremos el comprobante que requiere.
+            </p>
+        </div>
+        <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
+            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                <p class="text" style="color:black;">1.-Tipo: </p>
+                <div id="search" style="margin:0px;width: 300px;">
+                    <select class="searcher" name="hora">
+                        <option value="Deposito">Deposito cuenta</option>
+                        <option value="Pago Servicio">Pago de Servicio</option>
+                        <option value="Pago Tarjeta Credito">Pago tarjeta de crédito</option>
+                        <option value="Pago Credito/Prestamo">Pago de crédito o préstamo</option>
+                        <option value="Saldos/Movimientos">Consultar saldos y movimientos</option>
+                        <option value="Prestamo disponible">Prestamo disponible</option>
+                        <option value="Tiempo aire">Tiempo aire</option>
+                    </select>
+                </div>
+            </div>
+            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                <p class="text" style="color:black;">2.-Fecha: </p>
+                <div id="search" style="margin:0px;width: 300px;">
+                    <div style="display:flex;justify-content:center;">
+                        <input type="date" class="searcher">
+                    </div>
+                </div>
+            </div>
+            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                <p class="text" style="color:black;">3.-Hora a la que se hizo la transacción: </p>
+                <div id="search" style="margin:0px;width: 300px;">
+                    <select class="searcher" name="hora">
+                            <option value="12-2am">12:00 am-2:00 am</option>
+                            <option value="2-4am">2:00 am-4:00 am</option>
+                            <option value="4-6am">4:00 am-6:00 am</option>
+                            <option value="6-8am">6:00 am-8:00 am</option>
+                            <option value="8-10am">8:00 am-10:00 am</option>
+                            <option value="10am-12pm">10:00 am-12:00 pm</option>
+                            <option value="12-2pm">12:00 pm-2:00 pm</option>
+                            <option value="2-4pm">2:00 pm-4:00 pm</option>
+                            <option value="4-6pm">4:00 pm-6:00 pm</option>
+                            <option value="6-8pm">6:00 pm-8:00 pm</option>
+                            <option value="8-10pm">8:00 pm-10:00 pm</option>
+                            <option value="10pm-12am">10:00 pm-12:00 am</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
+            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                <p class="text" style="color:black;">4.-Ubicación del ATM: </p>
+                <div id="search" style="margin:0px;width: 300px;">
+                    <div>
+                        <input type="text" class="searcher" placeholder="Estado, Ciudad, Municipio">
+                    </div>
+                </div>
+            </div>
+            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                <p class="text" style="color:black;">5.-Últimos 4 dígitos de la cuenta: </p>
+                <div id="search" style="margin:0px;width: 300px;">
+                    <div>
+                        <input type="text" class="searcher" placeholder="Últimos 4 de los 16 dígitos">
+                    </div>
+                </div>
+            </div>
+            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                <p class="text" style="color:black;">6.-Banco de la cuenta: </p>
+                <div id="search" style="margin:0px;width: 300px;">
+                    <select class="searcher" name="hora">
+                        <option value="Bancomer">Bancomer</option>
+                        <option value="Banamex">Banamex</option>
+                        <option value="Santander">Santander</option>
+                        <option value="Banorte">Banorte</option>
+                        <option value="Banxico">Banxico</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:flex;justify-content:center;align-items:center;height: 100px;margin-bottom: 30px;">
+        <input type="submit" class="button" style="font-size: 20px;" value="Enviar Cuestionario">
+    </div>
+    <!-- Web page body -->
+
+    {% endblock %}

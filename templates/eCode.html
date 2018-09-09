@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block head_block %}
+    <title>eCode</title>
+    {% endblock %}
+
+    {% block body_block %}
+    <div class="background_questionary">
+        <div class="welcome_text" style="width:46.3%;height: 100px;padding-right: 0px;">
+            <p style="margin-bottom:20px;">Listo</p>
+            <p class="text" style="font-size:20px;">
+                Introduce tu código eCode que te apareció en la pantalla del cajero automático cuando realizaste tu transacción, 
+                y gracias por ayudarnos a mantener al planeta tan hermoso como ya lo es. 
+            </p>
+        </div>
+        <div class="background_options" style="width:55%;height: 350px;">
+            <div id="submit_container">
+                <div id="search">
+                    <div>
+                        <input type="text" class="searcher" placeholder="Introduce tu eCode">
+                    </div>
+                </div>
+                <input type="submit" class="submit_button" name="send_eCode" value="Enviar">
+            </div>
+        </div> 
+    </div>
+    <!-- Web page body -->
+
+    {% endblock%}

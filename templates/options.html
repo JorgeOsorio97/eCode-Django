@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block head_block %}
+    <title>Plazo de 7 días.</title>
+    {% endblock %}
+    
+    {% block body_block %}
+    <div class="welcome_text">
+        <p style="margin-bottom:20px;">¡Bienvenido!</p>
+        <p class="text" style="font-size:20px;">
+            ¿Han pasado más de 7 días desde que hiciste tu transacción?
+        </p>
+    </div>
+    <div class="background_options">
+        <!-- <div style="width:100%;height:50%;display:flex;justify-content:center;align-items:center;">
+            <div id="search">
+                <div style="width:530px; padding-left:16px">
+                    <input type="text" class="searcher" placeholder="Introduce tu e-Code">
+                </div>
+            </div>
+        </div> -->
+        <div id="button_container">
+            <button class="button" style="font-size:18px;width:270px;">Sí, han pasado más de 7 días.</button>
+            <button class="button" style="font-size:18px;width:270px;">No, han pasado menos de 7 días.</button>
+        </div>
+    </div>
+    <!-- Web page body -->
+    {% endblock %}

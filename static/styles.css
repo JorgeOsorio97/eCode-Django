@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+p{
+    padding: 0px;
+    margin: 0px;
+}
+
+h1{
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar_principal{
+    background-color: #072146;
+    height: 86px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_element{
+    padding-top: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.icono{
+    transform: scale(.05);
+}
+
+.background_index{
+    width: 100%;
+    height: 550px;
+    background-image: url('landscape.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 488px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.background_options{
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    height: 220px;
+    background-image: url('spotlight-dark-blue.svg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 100%px;
+}
+
+.background_questionary{
+    width: 100%;
+    height: 430px;
+    background-image: url('landscape2.jpg');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 45% 550px;
+}
+
+.welcome_text{
+    height: 100px;
+    width: 90%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:50px;
+    background-color: white;
+    color: #121212; 
+    font-family: 'Lato', sans-serif;
+}
+
+.div-container{
+    height: 65.91%;
+    width: 40%;
+    padding-right: 100px;
+    padding-top: 110px;
+}
+
+#message{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+
+.title{
+    color: white; 
+    color: #49a5e6;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+}
+
+.text{
+    color: #666666; 
+    font-family: 'Lato', sans-serif;
+}
+
+#leaf-image{
+    display: flex;
+    align-items: flex-end;
+}
+
+#search{
+    background-color: white;
+    width: 350px;
+    height: 44px;
+    padding-left: 15px;
+    margin-right: 100px;
+    border: 1px groove rgba(180,180,180,0.15);
+}
+
+.searcher{
+    border-style:hidden;
+    height: 35px;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    width: 300px;
+    outline-style: none;
+    /*Esto es para que no salga ese pequeño margen del input cuando le doy click*/;
+}
+  
+
+.button{
+    background-color: #2dcccd;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    border: none;
+    color: white;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.button:hover{
+    color: #666666;
+    box-shadow: 0px 2px .7px #072146;
+}
+
+.submit_button{
+    background-color: #2dcccd;
+    height: 50px;
+    margin-top: 20px;
+    margin-right:100px; 
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    border: none;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    font-size:18px;
+    width:200px;
+}
+
+.submit_button:hover{
+    color: #666666;
+    box-shadow:0px 3px 5px #072146;
+}
+
+#button_container{
+    width:65.19%;
+    height:200px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+#submit_container{
+    padding-left: 110px; 
+    padding-top: 50px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer{
+    background-color: #072146;
+    width:100%;
+    height:232px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container{
+    width:76%;
+    height:100px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.footer-row1{
+    display:flex;
+    flex-direction:row; 
+    height:30px;
+}
+
+.footer-row1-e1{
+    width:100%;
+    height:30px;
+    display:flex;
+    flex-direction:row-reverse;
+}
+
+.footer-row1-e1-im{
+    height: 30px;
+    width: 500px;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.footer-row2{
+    width:100%;
+    height:40px;
+    display:flex;
+    align-items: flex-end;
+}
+
+.footer-row2-links{
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    color: #5bbeff;
+    margin-right: 34px;
+}
+
+.footer-row2-links:hover{
+    color: white;
+}

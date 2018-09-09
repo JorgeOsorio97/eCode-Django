@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static "favicon.png" %}" type="image" sizes="16x16">
+    <link rel="stylesheet" href="{% static "styles.css" %}">  
+    {% block head_block %}
+    {% endblock %}
+</head>
+<body>
+    <div class="navbar_principal">                                      
+        <div class="nav_element"><a href="https://www.bancomer.com/"><img src="{% static "logo.svg" %}" alt="BVVA Bancomer logo"></a></div>
+        <!-- <div class="nav_element" style="padding-right:125px;"><img src="icon.svg" style="width: 25px;" alt="Menu icon"></div> -->
+    </div>
+    <!-- Navbar -->
+    {% block body_block %}
+    {% endblock %}
+    <!-- Web page body -->
+
+    <div class="footer">
+        <div class="footer-container">
+                <div class="footer-row1">      
+                        <a href="https://www.bbva.com/es/mx/"><img src="{% static "logo-footer.svg" %}" alt="BVVA Logo"></a>
+                        <div class="footer-row1-e1">
+                            <div class="footer-row1-e1-im">
+                                <img src="{% static "stripes-header-after.png" %}" width="100%;">
+                            </div>  
+                        </div>
+                </div>
+                <div class="footer-row2">
+                    <a href="https://openspace.bbva.com/aviso-legal/" class="footer-row2-links">Aviso legal</a>
+                    <a href="https://openspace.bbva.com/politica-de-cookies/" class="footer-row2-links" style="margin-right: 30px;">Cookies</a>
+                    <a href="https://openspace.bbva.com/proteccion-de-datos/" class="footer-row2-links">Datos personales</a>
+                    <a href="https://openspace.bbva.com/seguridad/" class="footer-row2-links">Seguridad</a>
+                    <a href="https://www.bbva.com/es/mx/" class="footer-row2-links">Web corporativa BBVA</a>
+                </div>
+        </div>
+    </div>
+    <!-- Footer -->     
+    <script type="text/javascript" src="{% static "action.js" %}"></script>
+</body>
+</html>

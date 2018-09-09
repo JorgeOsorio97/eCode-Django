@@ -9,7 +9,7 @@ class Transaccion(models.Model):
     cuenta = models.CharField(max_length=50)
     fecha = models.DateTimeField()
     banco = models.CharField(max_length = 100)
-    id_transaccion = models.CharField(max_length=50, null = True)
+    id_transaccion = models.CharField(max_length=50, primary_key = True)
 
     def save(self, *args, **kwargs):
         self.id_transaccion = str(self.id_atm.id_atm) + str(self.tipo) + str(self.folio) + str(self.fecha.year) + str(self.fecha.month)+ str(self.fecha.day)
@@ -34,5 +34,5 @@ class Cuenta(models.Model):
 class eCode(models.Model):
     ecode = models.CharField(max_length=5)
     id_transaccion = models.ForeignKey('Transaccion', on_delete= models.CASCADE, null = True)
-    fecha_uso = models.DateTimeField(null = True)
+    fecha_uso = models.DateTimeField(null = True, auto_now = True)
 
