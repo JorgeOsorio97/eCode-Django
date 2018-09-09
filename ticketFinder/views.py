@@ -10,13 +10,13 @@ def index(request):
     return render(request, 'index.html')
 
 def options(request):
-    return render(request, 'options.html')
+    return render(request, 'ticketFinder/options.html')
 
 def ecode(request):
-    return render(request, 'ecode.html')
+    return render(request, 'ticketFinder/ecode.html')
 
 def cuestionario(request):
-    return render(request, 'cuetionario.html')
+    return render(request, 'ticketFinder/cuestionario.html')
 
 
 
@@ -34,7 +34,7 @@ class GeneratePDF(View):
             "banco": transaccion.banco,
             "id_transaccion": transaccion.id_transaccion
         }
-        html = template.render(context)
+        html = template.render(context) 
         pdf = render_to_pdf('pdf.html', context)
         if pdf:
             response = HttpResponse(pdf, content_type='application/pdf')
