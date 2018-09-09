@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from ticketFinder import views
+from AtmClean import views as vw
 
 app_name = 'ticketFinder'
-
+    
 urlpatterns = [    
     path('', views.index, name = 'index'),
     re_path(r'options/$',views.options, name = 'options'),
     re_path(r'ecode/$', views.ecode, name = 'ecode'),
-    re_path(r'cuestionario/$', views.cuestionario, name = 'cuestionario'),
-    re_path(r'POST_cuestionario/$', views.POST_cuestionario, name = 'POST_cuestionario'),
+    path('cuestionario/', views.cuestionario, name = 'cuestionario'),
+    re_path(r'POST_buscar/$', views.POST_cuestionario, name = 'POST_cuestionario'),
+    re_path(r'charts/$', views.charts, name='charts'),
+    re_path(r'POST_ecode2tran/$', views.POST_ecode2tran, name='ecode2tran'),
+    re_path(r'cuestionario/generatePDF/$', vw.GeneratePDF.as_view(), name = 'genPDFs'),
     
 ]

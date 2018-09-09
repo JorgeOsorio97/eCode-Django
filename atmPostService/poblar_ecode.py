@@ -1,4 +1,7 @@
-from atmPostService.models import eCode, Transacciones, Cajero, Cuenta
+from atmPostService.models import eCode, Transaccion, Cajero, Cuenta
+#from models import eCode, Transacciones, Cajero, Cuenta
+import pandas as pd
+from datetime import datetime
 
 def define(x):
     if x < 10 :
@@ -81,5 +84,17 @@ def poblar_cuentas():
         return
 
 def poblar_transacciones():
-    for x in range(10000):
-        return
+    df = pd.read_csv('atmPostService/Transacciones.csv')
+    print(df.head())
+    for i in range(len(df['tipo'])):
+        tran = Transaccion()
+        tran.fecha = datetime(int(df.iloc[i]['Fecha'][:4]),int(df.iloc[i]['Fecha'][5:7]),int(df.iloc[i]['Fecha'][8:]))
+        tran.banco = df.iloc[i]['Banco']
+        tran.cuenta = df.iloc[i]['Cuenta']
+        tran.id_atm = Cajero.objects.filter(id_atm = df.iloc[i]['Id_ATM']).first()
+        tran.importe = df.iloc[i]['Importe']
+        tran.folio = df.iloc[i]['folio'] 
+        tran.tipo = df.iloc[i]['tipo']
+        tran.save()
+        
+

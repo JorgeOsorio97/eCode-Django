@@ -18,13 +18,13 @@
             <div id="submit_container">
                 <div id="search">
                     <div>
-                        <input type="text" class="searcher" placeholder="Introduce tu eCode">
+                        <input id="ecode" type="text" class="searcher" placeholder="Introduce tu eCode">
                     </div>
                 </div>
-                <input type="submit" class="submit_button" name="send_eCode" value="Enviar">
+                <input id="enviar" type="submit" class="submit_button" name="send_eCode" value="Enviar">
             </div>
         </div> 
     </div>
     <!-- Web page body -->
-
+    <script src="{% static "ecode.js" %}" ></script>
     {% endblock%}

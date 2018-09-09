@@ -7,8 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{% static "favicon.png" %}" type="image" sizes="16x16">
     <link rel="stylesheet" href="{% static "styles.css" %}">  
+    <script
+    src="{% static "jquery/jquery.js" %}"
+    crossorigin="anonymous"></script>
     {% block head_block %}
-    {% endblock %}
+    {% endblock %} 
 </head>
 <body>
     <div class="navbar_principal">                                      
@@ -39,7 +42,9 @@
                 </div>
         </div>
     </div>
-    <!-- Footer -->     
+    <!-- Footer -->
+
+     <!-- Con esta línea de código estoy importando la librería de JQuery -->
     <script type="text/javascript" src="{% static "action.js" %}"></script>
 </body>
 </html>

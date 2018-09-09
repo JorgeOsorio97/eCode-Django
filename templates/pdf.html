@@ -1,60 +1,88 @@
 <!DOCTYPE html>
- <html>
-     <head>
-         <title>Title</title>
-         <style type="text/css">
-             body {
-                 font-weight: 200;
-                 font-size: 14px;
-             }
-             .header {
-                 font-size: 20px;
-                 font-weight: 100;
-                 text-align: center;
-                 color: #007cae;
-             }
-             .title {
-                 font-size: 22px;
-                 font-weight: 100;
-                /* text-align: right;*/
-                padding: 10px 20px 0px 20px;  
-             }
-             .title span {
-                 color: #007cae;
-             }
-             .details {
-                 padding: 10px 20px 0px 20px;
-                 text-align: left !important;
-                 /*margin-left: 40%;*/
-             }
-             .hrItem {
-                 border: none;
-                 height: 1px;
-                 /* Set the hr color */
-                 color: #333; /* old IE */
-                 background-color: #fff; /* Modern Browsers */
-             }
-         </style>
-     </head>
-     <body>
-         <div class='wrapper'>
-             <div class='header'>
-                 <p class='title'>Invoice # </p>
-             </div>
-         <div>
-         <div class='details'>
-
-            <p>ATM - {{ id_atm }}</p>
-            <p>Folio - {{ folio }}</p>
-            <p>Tipo - {{ tipo }}</p>
-            <p>Importe - {{ importe }}</p>
-            <p>Cuenta - {{ cuenta }}</p>
-            <p>Fecha - {{ fecha }}</p>
-            <p>Banco - {{ banco }}</p>
-
-            
-             <hr class='hrItem' />
-         </div>
-     </div>
-     </body>
- </html>
+{% load staticfiles %}
+<html>
+    
+<center>
+<p style="text-align: center;">&nbsp;</p>
+<tbody>
+<tr>
+<td style="width: 575px;">
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="color: #00ccff;">
+<blockquote>
+<img src="{% static "logo.png" %}" width="300" height="300">
+<h2><span style="color: #00ccff;">{{ tipo }}</span></h2>
+<h3><span style="color: #00ccff;">Comprobante Digita</span> - Cajero Autom&aacute;tico</h3>
+<p>&nbsp;</p>
+<table style="border-collapse: collapse;" width="1000"> 
+<tbody>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>No. Cajero:</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;{{ id_atm }}</h4>
+</td>
+</tr>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>Ubicaci&oacute;n del Cajero:</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;{{ banco }}</h4>
+</td>
+</tr>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>Cuenta de Retiro:</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;{{ cuenta }}</h4>
+</td>
+</tr>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>Beneficieario:&nbsp;</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;{{ beneficiario }}</h4>
+</td>
+</tr>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>Importe:&nbsp;</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;<span style="color: #00ccff;">{{ importe }}</span></h4>
+</td>
+</tr>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>Fecha de Operaci&oacute;n:&nbsp;</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;{{ fecha }}</h4>
+</td>
+</tr>
+<tr>
+<td style="text-align: right; width: 255px;">
+<h4>Folio de Operaci&oacute;n:&nbsp;</h4>
+</td>
+<td style="width: 224px;">
+<h4>&nbsp;{{ folio }}</h4>
+</td>
+</tr>
+</tbody>
+</table>
+</IMG>
+</blockquote>
+<h4 style="text-align: center;"><span style="color: #000000; background-color: #99ccff;">En caso de no reconocer esta operaci&oacute;n, comunicate al 01 800 22 62 633.&nbsp;Este comprobante digital constituye una notificaci&oacute;n de los t&eacute;rminos en que realiz&oacute; la operaci&oacute;n , el &uacute;nico comprobante oficial es el que emite BBVA Bancomer.</span></h4>
+<p style="text-align: center;"><span style="color: #000080;">&nbsp;</span></p>
+<p style="text-align: center;">Alertas Bancomer te protege, te mantiene informado de la actividad de las cuentas, conoce m&aacute;s en <a href="http://www.bancomer.mx">www.bancomer.mx.</a></p>
+</td>
+</tr>
+</tbody>
+<p style="text-align: left;">&nbsp;</p>
+<p>&nbsp;</p>
+</center>
+</html>

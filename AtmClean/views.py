@@ -8,6 +8,7 @@ from atmPostService.models import Transaccion
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):
         transaccion = Transaccion.objects.filter(id_transaccion = request.GET.get('id_transaccion')).first()
+        print(transaccion)
         template = get_template('pdf.html')
         context = {
             "id_atm": transaccion.id_atm.id_atm,

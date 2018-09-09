@@ -114,7 +114,7 @@ h1{
     align-items: flex-end;
 }
 
-#search{
+.search{
     background-color: white;
     width: 350px;
     height: 44px;

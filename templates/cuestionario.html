@@ -6,7 +6,7 @@
     {% endblock %}
 
     {% block body_block %}
-    <div style="display: flex;flex-direction: column;width: 88.15%;height: 400px;padding-left: 80px;padding-right: 80px;">
+    <div style="display: flex;flex-direction: column;width: 88.15%;height: 550px;padding-left: 80px;padding-right: 80px;">
         <div style="width: 100%;height: 170px;margin-bottom: 50px;">
             <p class="text" style="font-size:30px;font-weight: 900;color: black;padding-top: 50px;">
             Contesta el siguiente cuestionario
@@ -17,83 +17,137 @@
             proporcionar, más le podremos asegurar que encontraremos el comprobante que requiere.
             </p>
         </div>
-        <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
-            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
-                <p class="text" style="color:black;">1.-Tipo: </p>
-                <div id="search" style="margin:0px;width: 300px;">
-                    <select class="searcher" name="hora">
-                        <option value="Deposito">Deposito cuenta</option>
-                        <option value="Pago Servicio">Pago de Servicio</option>
-                        <option value="Pago Tarjeta Credito">Pago tarjeta de crédito</option>
-                        <option value="Pago Credito/Prestamo">Pago de crédito o préstamo</option>
-                        <option value="Saldos/Movimientos">Consultar saldos y movimientos</option>
-                        <option value="Prestamo disponible">Prestamo disponible</option>
-                        <option value="Tiempo aire">Tiempo aire</option>
-                    </select>
+            {% csrf_token   %}
+            <form id="pedrito">
+                <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Tipo de transaccion: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <select id="tipo" class="searcher">
+                                <option value="empty">Seleccionar</option>
+                                <option value="0">Deposito cuenta</option>
+                                <option value="1">Pago de Servicio</option>
+                                <option value="2">Pago tarjeta de crédito</option>
+                                <option value="3">Pago de crédito o préstamo</option>
+                                <option value="4">Consultar saldos y movimientos</option>
+                                <option value="5">Prestamo disponible</option>
+                                <option value="6">Tiempo aire</option>
+                                <option value="7">Retiro</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Fecha en la que se hizo la transacción: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <div style="display:flex;justify-content:center;">
+                                <input id="fecha" type="date" class="searcher">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Rango de hora en la que se hizo la transacción: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <select id="hora" class="searcher">
+                                    <option value="empty">Seleccionar</option>
+                                <option value="00-02">12:00 am-2:00 am</option>
+                                <option value="02-04">2:00 am-4:00 am</option>
+                                <option value="04-06">4:00 am-6:00 am</option>
+                                <option value="06-08">6:00 am-8:00 am</option>
+                                <option value="08-10">8:00 am-10:00 am</option>
+                                <option value="10-12">10:00 am-12:00 pm</option>
+                                <option value="12-14">12:00 pm-2:00 pm</option>
+                                <option value="14-16">2:00 pm-4:00 pm</option>
+                                <option value="16-18">4:00 pm-6:00 pm</option>
+                                <option value="18-20">6:00 pm-8:00 pm</option>
+                                <option value="20-22">8:00 pm-10:00 pm</option>
+                                <option value="22-24">10:00 pm-12:00 am</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
-                <p class="text" style="color:black;">2.-Fecha: </p>
-                <div id="search" style="margin:0px;width: 300px;">
-                    <div style="display:flex;justify-content:center;">
-                        <input type="date" class="searcher">
+                <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Ubicación del ATM: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <div>
+                                <select id="estado" class="searcher">
+                                        <option value="empty">Seleccionar</option>
+                                    <option value="Aguascalientes">Aguascalientes</option>
+                                    <option value="Baja California">Baja California</option>
+                                    <option value="Baja California Sur">Baja California Sur</option>
+                                    <option value="Campeche">Campeche</option>
+                                    <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+                                    <option value="Colima">Colima</option>
+                                    <option value="Chiapas">Chiapas</option>
+                                    <option value="Chihuahua">Chihuahua</option>
+                                    <option value="Distrito Federal">Distrito Federal</option>
+                                    <option value="Durango">Durango</option>
+                                    <option value="Guanajuato">Guanajuato</option>
+                                    <option value="Guerrero">Guerrero</option>
+                                    <option value="Hidalgo">Hidalgo</option>
+                                    <option value="Jalisco">Jalisco</option>
+                                    <option value="Estado de México">Estado de México</option>
+                                    <option value="Michoacán">Michoacán</option>
+                                    <option value="Morelos">Morelos</option>
+                                    <option value="Nayarit">Nayarit</option>
+                                    <option value="Nuevo León">Nuevo León</option>
+                                    <option value="Oaxaca">Oaxaca</option>
+                                    <option value="Puebla">Puebla</option>
+                                    <option value="Querétaro">Querétaro</option>
+                                    <option value="Quintana Roo">Quintana Roo</option>
+                                    <option value="San Luis Potosí">San Luis Potosí</option>
+                                    <option value="Sinaloa">Sinaloa</option>
+                                    <option value="Sonora">Sonora</option>
+                                    <option value="Tabasco">Tabasco</option>
+                                    <option value="Tamaulipas">Tamaulipas</option>
+                                    <option value="Tlaxcala">Tlaxcala</option>
+                                    <option value="Veracruz">Veracruz</option>
+                                    <option value="Yucatán">Yucatán</option>
+                                    <option value="Zacatecas">Zacatecas</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Ubicación del ATM: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <div>
+                                <input id="municipio" type="text" class="searcher" placeholder="Municipio/Delegación" value="empty">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        
+                    </div>
+                </div>
+                <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Banco de la cuenta: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <select id="banco" class="searcher">
+                                <option value="Bancomer">Bancomer</option>
+                                <option value="Banamex">Banamex</option>
+                                <option value="Santander">Santander</option>
+                                <option value="Banorte">Banorte</option>
+                                <option value="Banxico">Banxico</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
+                        <p class="text" style="color:black;">Últimos 4 dígitos de la cuenta: </p>
+                        <div class="search" style="margin:0px;width: 300px;">
+                            <div>
+                                <input id="u4" type="number" class="searcher" placeholder="Ej: 9864">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
                     </div>
                 </div>
             </div>
-            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
-                <p class="text" style="color:black;">3.-Hora a la que se hizo la transacción: </p>
-                <div id="search" style="margin:0px;width: 300px;">
-                    <select class="searcher" name="hora">
-                            <option value="12-2am">12:00 am-2:00 am</option>
-                            <option value="2-4am">2:00 am-4:00 am</option>
-                            <option value="4-6am">4:00 am-6:00 am</option>
-                            <option value="6-8am">6:00 am-8:00 am</option>
-                            <option value="8-10am">8:00 am-10:00 am</option>
-                            <option value="10am-12pm">10:00 am-12:00 pm</option>
-                            <option value="12-2pm">12:00 pm-2:00 pm</option>
-                            <option value="2-4pm">2:00 pm-4:00 pm</option>
-                            <option value="4-6pm">4:00 pm-6:00 pm</option>
-                            <option value="6-8pm">6:00 pm-8:00 pm</option>
-                            <option value="8-10pm">8:00 pm-10:00 pm</option>
-                            <option value="10pm-12am">10:00 pm-12:00 am</option>
-                    </select>
-                </div>
+            <div style="display:flex;justify-content:center;align-items:center;height: 100px;margin-bottom: 30px;">
+                <button id="mandar_cuestionario" type="submit" class="button" style="font-size: 20px;" value="Enviar Cuestionario">Enviar</button>
             </div>
-        </div>
-        <div style="width: 100%;height: 110px;padding-left: 1px;padding-right: 1px;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-around;">
-            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
-                <p class="text" style="color:black;">4.-Ubicación del ATM: </p>
-                <div id="search" style="margin:0px;width: 300px;">
-                    <div>
-                        <input type="text" class="searcher" placeholder="Estado, Ciudad, Municipio">
-                    </div>
-                </div>
-            </div>
-            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
-                <p class="text" style="color:black;">5.-Últimos 4 dígitos de la cuenta: </p>
-                <div id="search" style="margin:0px;width: 300px;">
-                    <div>
-                        <input type="text" class="searcher" placeholder="Últimos 4 de los 16 dígitos">
-                    </div>
-                </div>
-            </div>
-            <div style="width:367px;height: 60px;display: flex;flex-direction: column;">
-                <p class="text" style="color:black;">6.-Banco de la cuenta: </p>
-                <div id="search" style="margin:0px;width: 300px;">
-                    <select class="searcher" name="hora">
-                        <option value="Bancomer">Bancomer</option>
-                        <option value="Banamex">Banamex</option>
-                        <option value="Santander">Santander</option>
-                        <option value="Banorte">Banorte</option>
-                        <option value="Banxico">Banxico</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div style="display:flex;justify-content:center;align-items:center;height: 100px;margin-bottom: 30px;">
-        <input type="submit" class="button" style="font-size: 20px;" value="Enviar Cuestionario">
-    </div>
-    <!-- Web page body -->
-
-    {% endblock %}
+        </form>
+        <!-- Web page body -->
+        {% endblock%}

@@ -21,8 +21,8 @@
             </div>
         </div> -->
         <div id="button_container">
-            <button class="button" style="font-size:18px;width:270px;">Sí, han pasado más de 7 días.</button>
-            <button class="button" style="font-size:18px;width:270px;">No, han pasado menos de 7 días.</button>
+            <a href="{% url "ticketFinder:cuestionario" %}"><button class="button" style="font-size:18px;width:270px;">Sí, han pasado más de 7 días.</button></a>
+            <a href="{% url "ticketFinder:ecode" %}"><button class="button" style="font-size:18px;width:270px;">No, han pasado menos de 7 días.</button></a>
         </div>
     </div>
     <!-- Web page body -->

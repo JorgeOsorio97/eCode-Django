@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+<html lang="en">
+    {% block head_block%}
+    <link rel="stylesheet" href="{% static "morris.css" %}">
+    <title>Gráfica Lineal</title>
+    {% endblock %}
+    {% block body_block%}
+    <div>
+        <div id="myfirstchart" style="height: 450px;"></div>
+    </div>
+    <!-- Esta es la gráfica, dentro del style la puedes comunicar como quieras, a fuerza debe tener
+    esas librerías de arriba y de abajo importadas y tener el archivo morris.css y morris.min.js
+    La gráfica se crea en el archivo action.js -->
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script src="{% static "morris.min.js" %}"></script>
+    {% endblock%}
